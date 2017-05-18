@@ -21,7 +21,7 @@
 ## Python Quizzes
 
  - cd ml_regression/quizzes
- - All weekly quizzes.py from week_2 to week_6 
+ - All weekly quizzes.py from week_1 to week_6
 
 ## Authors
 
