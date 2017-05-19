@@ -1,5 +1,5 @@
 __author__ = 'nadyaK'
-__date__ = '04/09/2017'
+__date__ = '04/25/2017'
 
 import ml_regression_utils as reg
 import ml_graphlab_utils as gp
@@ -8,6 +8,9 @@ import traceback
 import matplotlib.pyplot as plt
 from ml_regression_utils import RidgeRegression
 
+#==================================================================
+#               Quiz-1: Ridge Regression & l2_penalty
+#==================================================================
 def create_ridge_regression_and_plot(data_sets, degree, l2_penalty, power_n):
 	axis = "power_%s" % power_n
 	weights_per_set = {}
@@ -22,7 +25,7 @@ def create_ridge_regression_and_plot(data_sets, degree, l2_penalty, power_n):
 		set_name = 'Set %s' % (idx+1)
 		# print set_name
 		# w = np_utils.print_coefficients(model)
-		weights_per_set[set_name] = gp.get_model_coefficients(model)[axis]
+		weights_per_set[set_name] = gp.get_model_coefficients_dict(model)[axis]
 		x_axis = poly_n[axis]
 		plot_info['label'] = 'degree %s fit set:%s' % (degree,idx+1)
 		reg.simple_plot(x_axis, model.predict(poly_n), plot_info)
@@ -37,7 +40,7 @@ def quiz_1_ridge_regression(sales):
 
 	model,poly_sframe = reg.polynomial_ridge_regression(sales,degree=15,target='price',l2_penalty=l2_small_penalty)
 	# np_utils.print_coefficients(model)
-	coeff_powers = gp.get_model_coefficients(model)
+	coeff_powers = gp.get_model_coefficients_dict(model)
 
 	print "\nQ1: Learned coefficient of feature power_1: %s" % (round(abs(coeff_powers['power_1']),2))
 
@@ -145,6 +148,9 @@ def compute_ridge_rss(weights_list, feature_matrix, test_data):
 		# print 'RSS1: %s' % (RSS1)
 		print "\n\tTEST error (RSS) is: %s" % (RSS1)
 
+#==================================================================
+#                 Quiz-2: Ridge Gradient Descent
+#==================================================================
 def quiz_2_ridge_grandient_descent(sales):
 	print "\n**********************************"
 	print "*     Ridge Gradient Descent     *"
