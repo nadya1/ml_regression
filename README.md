@@ -22,7 +22,3 @@
 
  - cd ml_regression/quizzes
  - All weekly quizzes.py from week_1 to week_6
-
-## Authors
-
- - Nadya Ortiz
