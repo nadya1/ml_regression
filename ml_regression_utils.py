@@ -71,7 +71,7 @@ class GrandientDescent(object):
 				# Recall that feature_matrix[:, i] is the feature column associated with weights[i]
 				# compute the derivative for weight[i]:
 				feature = feature_matrix[:,i]
-				derivative = np_utils.feature_derivative(errors,feature)
+				derivative = 2 * np_utils.feature_derivative(errors,feature)
 				# add the squared value of the derivative to the gradient sum of squares (for assessing convergence)
 				gradient_sum_squares += derivative ** 2
 				# subtract the step size times the derivative from the current weight
